@@ -1,0 +1,97 @@
+@import "./Variables";
+@import "./Mixins";
+
+
+footer{
+  background-color: $color1;
+}
+.footer__wrap{
+  @include flex-mother($flex-direction: column, $align-items:flex-start);
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 0 20px 20%;
+  font-family: 'Rubik', sans-serif;
+  .footer__map, .footer__products{
+    margin-top: 30px;
+    .footer__map-title, .footer__products-title{
+      position: relative;
+      padding-bottom: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+      &::after{
+        content:"";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        height: 2px;
+        width: 40px;
+        background-color: white;
+      }
+    }
+    a{
+      display: block;
+      margin: 3px 0;
+      text-decoration: none;
+      color: $color2;
+      &:visited{
+        color: $color2;
+      }
+      &:first-of-type{
+        margin-top: 10px;
+      }
+    }
+  }
+
+  .footer__address{
+    @include flex-mother($flex-direction: column);
+    margin-top: 50px;
+    .footer__address-logo{
+      margin: 0 0 15px 0;
+    }
+    a,span{
+      display: inline-block;
+      margin: 0 0 5px 0;
+      font-size: 15px;
+      font-weight: 500;
+      font-style: normal;
+      text-decoration: none;
+      color: white;
+    }
+    .footer__address-address{
+      font-weight: 300;
+    }
+    .footer__address-copyright{
+      margin-top: 50px;
+    }
+  }
+}
+
+@media (min-width: 639px){
+  .footer__wrap{
+    @include flex-mother($flex-direction: row, $flex-wrap: wrap);
+    padding-top: 0;
+    &>*{
+      flex-basis: 50%;
+    }
+  }
+
+}
+
+@media (min-width: 799px){
+  .footer__wrap{
+    @include flex-mother($flex-direction: row, $flex-wrap: nowrap);
+    padding: 30px 25px;
+    .footer__address{
+      order: 1;
+      flex-grow: 1;
+      margin-top: 0;
+    }
+    .footer__map, .footer__products{
+      flex-basis: 300px;
+      order: 2;
+      margin-top: 0;
+    }
+  }
+}
+
